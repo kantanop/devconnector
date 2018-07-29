@@ -255,7 +255,7 @@ class CreateProfile extends Component {
                   value={this.state.githubusername}
                   onChange={this.onChange}
                   error={errors.githubusername}
-                  info="If you want your latest repos and a Github link, include your username"
+                  info="If you want your latest repos and a Github link, include only your username"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
