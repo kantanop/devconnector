@@ -2,6 +2,9 @@
   "name": "projectmern",
   "version": "1.0.0",
   "description": "Social for developer",
+  "engines": {
+    "node": "8.11.3"
+  },
   "main": "index.js",
   "scripts": {
     "client-install": "npm install --prefix client",
