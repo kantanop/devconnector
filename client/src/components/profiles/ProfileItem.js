@@ -10,10 +10,10 @@ class ProfileItem extends Component {
     return (
       <div className="card card-body bg-light mb-3">
         <div className="row">
-          <div className="col-">
-            <img src={profile.user} alt="" className="rounded-circle" />
+          <div className="col-2">
+            <img src={profile.user.avatar} alt="" className="rounded-circle" />
           </div>
-          <div className="col-lg-6 col-md-5 col-8">
+          <div className="col-lg-6 col-md-4 col-8">
             <h3>{profile.user.name}</h3>
             <p>
               {profile.status}{' '}
@@ -27,8 +27,7 @@ class ProfileItem extends Component {
               )}
             </p>
             <Link to={`/profile/${profile.handle}`} className="btn btn-info">
-              {' '}
-              View Profile{' '}
+              View Profile
             </Link>
           </div>
           <div className="col-md-4 d-none d-md-block">
@@ -48,7 +47,7 @@ class ProfileItem extends Component {
   }
 }
 
-ProfileItem.propType = {
+ProfileItem.propTypes = {
   profile: PropTypes.object.isRequired
 };
 

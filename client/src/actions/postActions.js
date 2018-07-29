@@ -29,7 +29,7 @@ export const addPost = postData => dispatch => {
     );
 };
 
-// get Post
+// Get Posts
 export const getPosts = () => dispatch => {
   dispatch(setPostLoading());
   axios
@@ -48,7 +48,7 @@ export const getPosts = () => dispatch => {
     );
 };
 
-// get Post
+// Get Post
 export const getPost = id => dispatch => {
   dispatch(setPostLoading());
   axios
@@ -61,13 +61,13 @@ export const getPost = id => dispatch => {
     )
     .catch(err =>
       dispatch({
-        type: GET_POSTS,
+        type: GET_POST,
         payload: null
       })
     );
 };
 
-//Delete Post
+// Delete Post
 export const deletePost = id => dispatch => {
   axios
     .delete(`/api/posts/${id}`)
@@ -85,7 +85,7 @@ export const deletePost = id => dispatch => {
     );
 };
 
-//Add Like
+// Add Like
 export const addLike = id => dispatch => {
   axios
     .post(`/api/posts/like/${id}`)
@@ -98,7 +98,7 @@ export const addLike = id => dispatch => {
     );
 };
 
-//Add Like
+// Remove Like
 export const removeLike = id => dispatch => {
   axios
     .post(`/api/posts/unlike/${id}`)
@@ -111,7 +111,7 @@ export const removeLike = id => dispatch => {
     );
 };
 
-// Add comment
+// Add Comment
 export const addComment = (postId, commentData) => dispatch => {
   dispatch(clearErrors());
   axios
@@ -130,9 +130,8 @@ export const addComment = (postId, commentData) => dispatch => {
     );
 };
 
-// Delete comment
+// Delete Comment
 export const deleteComment = (postId, commentId) => dispatch => {
-  //dispatch(clearErrors());
   axios
     .delete(`/api/posts/comment/${postId}/${commentId}`)
     .then(res =>
@@ -149,14 +148,14 @@ export const deleteComment = (postId, commentId) => dispatch => {
     );
 };
 
-//set loading state
+// Set loading state
 export const setPostLoading = () => {
   return {
     type: POST_LOADING
   };
 };
 
-//clear errors
+// Clear errors
 export const clearErrors = () => {
   return {
     type: CLEAR_ERRORS

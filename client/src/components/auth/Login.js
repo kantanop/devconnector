@@ -25,16 +25,12 @@ class Login extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('./dashboard');
+      this.props.history.push('/dashboard');
     }
 
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
   }
 
   onSubmit(e) {
@@ -44,7 +40,12 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
+
     this.props.loginUser(userData);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -77,7 +78,6 @@ class Login extends Component {
                   onChange={this.onChange}
                   error={errors.password}
                 />
-
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>

@@ -15,11 +15,11 @@ class Experience extends Component {
         <td>{exp.company}</td>
         <td>{exp.title}</td>
         <td>
-          <Moment format="DD/MM/YYYY">{exp.from}</Moment> -{' '}
+          <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
           {exp.to === null ? (
-            'Now'
+            ' Now'
           ) : (
-            <Moment format="DD/MM/YYYY">{exp.to}</Moment>
+            <Moment format="YYYY/MM/DD">{exp.to}</Moment>
           )}
         </td>
         <td>
@@ -51,7 +51,7 @@ class Experience extends Component {
   }
 }
 
-Experience.protoType = {
+Experience.propTypes = {
   deleteExperience: PropTypes.func.isRequired
 };
 

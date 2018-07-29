@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import TextFieldGroup from '../common/TextFieldGroup';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { connect } from 'react-redux';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { addExperience } from '../../actions/profileActions';
 
 class AddExperience extends Component {
@@ -18,7 +18,7 @@ class AddExperience extends Component {
       current: false,
       description: '',
       errors: {},
-      disable: false
+      disabled: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -124,23 +124,23 @@ class AddExperience extends Component {
                     onChange={this.onCheck}
                     id="current"
                   />
-                  <label htmlFor="current" className="form-check-labe">
+                  <label htmlFor="current" className="form-check-label">
                     Current Job
                   </label>
-                  <TextFieldGroup
-                    placeholder="Job Description"
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.onChange}
-                    error={errors.description}
-                    info="Tell us about the position"
-                  />
-                  <input
-                    type="submit"
-                    value="Submit"
-                    className="btn btn-info btn-block mt4"
-                  />
                 </div>
+                <TextAreaFieldGroup
+                  placeholder="Job Description"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.onChange}
+                  error={errors.description}
+                  info="Tell us about the the position"
+                />
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="btn btn-info btn-block mt-4"
+                />
               </form>
             </div>
           </div>
@@ -150,10 +150,10 @@ class AddExperience extends Component {
   }
 }
 
-AddExperience.protoType = {
-  addExperience: Proptypes.func.isRequired,
-  profile: Proptypes.object.isRequired,
-  errors: Proptypes.object.isRequired
+AddExperience.propTypes = {
+  addExperience: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

@@ -2,11 +2,11 @@ import axios from 'axios';
 
 import {
   GET_PROFILE,
+  GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
-  SET_CURRENT_USER,
-  GET_PROFILES
+  SET_CURRENT_USER
 } from './types';
 
 // Get current profile
@@ -27,7 +27,8 @@ export const getCurrentProfile = () => dispatch => {
       })
     );
 };
-//get Profile By Handle
+
+// Get profile by handle
 export const getProfileByHandle = handle => dispatch => {
   dispatch(setProfileLoading());
   axios
@@ -58,7 +59,8 @@ export const createProfile = (profileData, history) => dispatch => {
       })
     );
 };
-//Add experience
+
+// Add experience
 export const addExperience = (expData, history) => dispatch => {
   axios
     .post('/api/profile/experience', expData)
@@ -71,7 +73,7 @@ export const addExperience = (expData, history) => dispatch => {
     );
 };
 
-//Add education
+// Add education
 export const addEducation = (eduData, history) => dispatch => {
   axios
     .post('/api/profile/education', eduData)
@@ -84,7 +86,7 @@ export const addEducation = (eduData, history) => dispatch => {
     );
 };
 
-//Delete experience
+// Delete Experience
 export const deleteExperience = id => dispatch => {
   axios
     .delete(`/api/profile/experience/${id}`)
@@ -102,7 +104,7 @@ export const deleteExperience = id => dispatch => {
     );
 };
 
-//Delete education
+// Delete Education
 export const deleteEducation = id => dispatch => {
   axios
     .delete(`/api/profile/education/${id}`)
@@ -120,7 +122,7 @@ export const deleteEducation = id => dispatch => {
     );
 };
 
-//Get all Profiles
+// Get all profiles
 export const getProfiles = () => dispatch => {
   dispatch(setProfileLoading());
   axios
@@ -139,9 +141,9 @@ export const getProfiles = () => dispatch => {
     );
 };
 
-//Delete account & profile
+// Delete account & profile
 export const deleteAccount = () => dispatch => {
-  if (window.confirm('Are you sure? This can be undone!')) {
+  if (window.confirm('Are you sure? This can NOT be undone!')) {
     axios
       .delete('/api/profile')
       .then(res =>

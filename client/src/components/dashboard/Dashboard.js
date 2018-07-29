@@ -26,7 +26,7 @@ class Dashboard extends Component {
     if (profile === null || loading) {
       dashboardContent = <Spinner />;
     } else {
-      //Check if logged in user has profile data
+      // Check if logged in user has profile data
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
@@ -41,18 +41,18 @@ class Dashboard extends Component {
               onClick={this.onDeleteClick.bind(this)}
               className="btn btn-danger"
             >
-              Delete my Account{' '}
+              Delete My Account
             </button>
           </div>
         );
       } else {
-        //User is loggin but has no profile
+        // User is logged in but has no profile
         dashboardContent = (
           <div>
             <p className="lead text-muted">Welcome {user.name}</p>
             <p>You have not yet setup a profile, please add some info</p>
             <Link to="/create-profile" className="btn btn-lg btn-info">
-              Create profile
+              Create Profile
             </Link>
           </div>
         );
@@ -62,10 +62,11 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <div className="container">
-          <div className="row" />
-          <div className="col-md-12">
-            <div className="display-4">Dashboard</div>
-            {dashboardContent}
+          <div className="row">
+            <div className="col-md-12">
+              <h1 className="display-4">Dashboard</h1>
+              {dashboardContent}
+            </div>
           </div>
         </div>
       </div>

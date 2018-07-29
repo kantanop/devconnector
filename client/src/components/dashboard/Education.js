@@ -15,11 +15,11 @@ class Education extends Component {
         <td>{edu.school}</td>
         <td>{edu.degree}</td>
         <td>
-          <Moment format="DD/MM/YYYY">{edu.from}</Moment> -{' '}
+          <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
           {edu.to === null ? (
-            'Now'
+            ' Now'
           ) : (
-            <Moment format="DD/MM/YYYY">{edu.to}</Moment>
+            <Moment format="YYYY/MM/DD">{edu.to}</Moment>
           )}
         </td>
         <td>
@@ -51,7 +51,7 @@ class Education extends Component {
   }
 }
 
-Education.protoType = {
+Education.propTypes = {
   deleteEducation: PropTypes.func.isRequired
 };
 
